@@ -19,3 +19,14 @@ services:
     ports:
       - "6432:5432"
   
+  dotnet:
+    image: microsoft/dotnet:2-sdk-jessie
+    environment:
+      - DB_HOST=${TARGET:-pgbouncer}
+    depends_on:
+      - pgbouncer
+      - postgres
+    volumes:
+      - ./:/work
+    working_dir: /work
+    command: dotnet run
