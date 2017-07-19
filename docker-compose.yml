@@ -1,0 +1,21 @@
+version: "3"
+services:
+  pgbouncer:
+    image: brainsam/pgbouncer:1.7.2
+    environment:
+      - LISTEN_PORT=5432
+      - DB_HOST=postgres
+      - DB_USER=test
+      - DB_PASSWORD=test
+    ports:
+      - "5432:5432"
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    ports:
+      - "6432:5432"
+  
