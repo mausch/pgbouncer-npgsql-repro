@@ -9,7 +9,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var connectionString = $"host={Environment.GetEnvironmentVariable("DB_HOST")};port=5432;database=test;username=test;password=test;pooling=false";
+            var connectionString = $"host={Environment.GetEnvironmentVariable("DB_HOST")};port=5432;database=test;username=test;password=test;pooling=false;No Reset On Close=true";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
