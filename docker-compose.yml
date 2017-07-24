@@ -2,12 +2,8 @@ version: "3"
 services:
   pgbouncer:
     image: brainsam/pgbouncer:1.7.2
-    environment:
-      - LISTEN_PORT=5432
-      - DB_HOST=postgres
-      - DB_USER=test
-      - DB_PASSWORD=test
-      - POOL_MODE=transaction
+    volumes:
+      - ./:/etc/pgbouncer:ro
     ports:
       - "5432:5432"
 
